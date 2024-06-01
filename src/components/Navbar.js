@@ -2,6 +2,7 @@ import React from 'react'
 import logo from '../assets/Logo.svg';
 import { Link } from 'react-router-dom';
 import {toast} from 'react-hot-toast';
+import hamburger from '../assets/hamburger.svg';
 
 const Navbar = (props) => {
     let isLoggedIn = props.isLoggedIn;
@@ -15,8 +16,8 @@ const Navbar = (props) => {
 
         {/* Home-about-contact  */}
 
-        <nav >
-            <ul className='flex gap-x-6 text-richblack-25 '>
+        <nav className='hidden md:block' >
+            <ul className='flex gap-x-6 text-richblack-25 tracking-wider'>
                 <li>
                     <Link to="/">Home</Link>
                 </li>
@@ -31,7 +32,7 @@ const Navbar = (props) => {
 
         {/* login - signup - logout - dashboard */}
 
-       <div className='flex items-center gap-x-4 '>
+       <div className='md:flex items-center gap-x-4 tracking-wide hidden '>
             {   !isLoggedIn &&
                    <Link to="/login">
                         <button className='bg-richblack-800 text-richblack-100 py-[8px] px-[12px]
@@ -74,6 +75,10 @@ const Navbar = (props) => {
                     </Link>
                 }
        </div>
+
+        <button className='md:hidden mr-4'>
+            <img src={hamburger} alt="hamburger" />
+        </button>
 
 
     </div>
